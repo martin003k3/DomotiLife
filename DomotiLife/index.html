@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DomotiLife</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            padding-bottom: 50px; /* Añade más espacio en el fondo */
+        }
+        header {
+            background-color: #0074D9;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        header img {
+            height: 80px; /* Tamaño del logo */
+            margin-right: 20px;
+        }
+        .nav-buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-buttons button {
+            background-color: #0074D9;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 25px; /* Botones redondeados */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Sombra en botones */
+            transition: background-color 0.3s;
+        }
+        .nav-buttons button:hover {
+            background-color: #005bb5;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section-title {
+            color: #333;
+            border-bottom: 2px solid #0074D9;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .section {
+            display: none;
+        }
+        .service-item {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #0074D9;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .contact-item input,
+        .contact-item textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-item button {
+            background-color: #0074D9;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .contact-item button:hover {
+            background-color: #005bb5;
+        }
+        .image {
+            max-width: 100%;
+            height: auto; /* Ajusta la altura automáticamente */
+            max-height: 300px; /* Limita la altura máxima */
+            margin: 10px 0;
+        }
+        @media (min-width: 767px) {
+            .about-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .about-item p {
+                flex: 1;
+                margin-right: 20px;
+            }
+            .about-item img {
+                flex: 1;
+                max-width: 50%;
+            }
+        }
+        @media (max-width: 767px) {
+            .about-item img {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo de DomotiLife">
+        <h1>DomotiLife</h1>
+    </header>
+    <nav class="nav-buttons">
+        <button onclick="showSection('services')">Servicios</button>
+        <button onclick="showSection('about')">Sobre Nosotros</button>
+        <button onclick="showSection('contact')">Contacto</button>
+    </nav>
+    <div class="container">
+        <section id="services" class="section">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="service-item">
+                <h3>Instalaciones Eléctricas y Domóticas Adaptadas</h3>
+                <p>Realizamos instalaciones eléctricas y de domótica de alta calidad. Nos especializamos en adaptaciones para personas con movilidad reducida, garantizando seguridad, comodidad y accesibilidad en sus hogares.</p>
+                <img src="instalaciones.jpg" alt="Instalaciones Eléctricas" class="image">
+            </div>
+            <div class="service-item">
+                <h3>Mantenimiento Preventivo</h3>
+                <p>Proporcionamos servicios de mantenimiento preventivo para asegurar el correcto funcionamiento y la durabilidad de los sistemas eléctricos y domóticos. Nuestro equipo se encarga de detectar y solucionar problemas antes de que se conviertan en fallos graves.</p>
+                <img src="mantenimiento.jpg" alt="Mantenimiento Preventivo" class="image">
+            </div>
+            <div class="service-item">
+                <h3>Auditorías Energéticas</h3>
+                <p>Ofrecemos auditorías energéticas completas para identificar oportunidades de ahorro y mejorar la eficiencia energética de sus instalaciones. Nuestro objetivo es reducir el consumo de energía y los costos asociados.</p>
+                <img src="auditoria.jpg" alt="Auditorías Energéticas" class="image">
+            </div>
+        </section>
+        <section id="about" class="section">
+            <h2 class="section-title">Sobre Nosotros</h2>
+            <div class="about-item">
+                <p>En DomotiLife, nos dedicamos a ofrecer soluciones tecnológicas avanzadas para mejorar la calidad de vida de nuestros clientes. Nos especializamos en la instalación y adaptación de sistemas eléctricos y domóticos, con un enfoque particular en la accesibilidad para personas con movilidad reducida.</p>
+                <img src="equipo.jpg" alt="Nuestro Equipo" class="image">
+            </div>
+        </section>
+        <section id="contact" class="section">
+            <h2 class="section-title">Contacto</h2>
+            <form id="contactForm" class="contact-item">
+                <label for="name">Nombre:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Correo Electrónico:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="message">Mensaje:</label><br>
+                <textarea id="message" name="message" required></textarea><br><br>
+                <button type="submit">Enviar</button>
+            </form>
+            <p>Correo electrónico: <a href="mailto:domotilife@gmail.com">domotilife@gmail.com</a></p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 DomotiLife. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+
+            console.log(`Nombre: ${name}, Correo: ${email}, Mensaje: ${message}`);
+            alert("Formulario enviado!");
+            var mailtoLink = `mailto:domotilife@gmail.com?subject=Contacto de ${name}&body=Nombre: ${name}%0ACorreo Electrónico: ${email}%0AMensaje: ${message}`;
+            window.location.href = mailtoLink;
+        });
+
+        // Mostrar la primera sección por defecto
+        showSection('services');
+    </script>
+</body>
+</html>
